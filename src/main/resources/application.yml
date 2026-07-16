@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rag
+    username: postgres
+    password: postgres
+  ai:
+    openai:
+      api-key: YOUR_OPENAI_KEY
+    vectorstore:
+      pgvector:
+        initialize-schema: true
+logging:
+  level:
+    org.springframework.ai: DEBUG
