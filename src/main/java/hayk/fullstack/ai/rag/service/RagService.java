@@ -10,28 +10,28 @@ import org.springframework.stereotype.Service;
 public class RagService {
 
     private final ChatClient chatClient;
-    private final VectorStore vectorStore;
+
 
     public RagService(
-            ChatClient chatClient,
-            VectorStore vectorStore
+            ChatClient chatClient
     ){
-        this.chatClient = chatClient;
-        this.vectorStore = vectorStore;
+
+        this.chatClient=chatClient;
+
     }
 
-    public String ask(
-            String question
-    ){
+
+
+    public String ask(String question){
+
+
         return chatClient
                 .prompt()
                 .user(question)
-                .advisors(
-                        new QuestionAnswerAdvisor(
-                                vectorStore
-                        )
-                )
                 .call()
                 .content();
+
+
     }
+
 }
